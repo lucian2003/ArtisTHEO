@@ -51,7 +51,7 @@
 		        			<div class="col-lg-10 align-items-end">
 		        				<div class="form-group">
 		          				<div class="form-field">
-				                <input type="text" class="form-control" placeholder="Encuentra tu artista favorito">
+				                <input type="text" class="form-control" id="myInput" placeholder="Encuentra tu artista favorito">
 				                <button><span class="ion-ios-search"></span></button>
 				              </div>
 			              </div>
@@ -86,10 +86,10 @@
               <th scope="col" width="" class="text-center align-middle"><strong>INFORMACIÓN</strong></th>
             </tr>
           </thead>
-          <tbody>
+          <tbody id="myTable">
             {% for i in 0..10 %}
               <tr>
-                <td id="position" class="text-center align-middle">NOMBRE DEL ARTISTA</td>
+                <td id="position" class="text-center align-middle">NOMBRE DEL ARTISTA {{i}}</td>
                 <td id="position" class="text-center align-middle">CATEGORÍA DEL ARTISTA</td>
                 <td id="position" class="text-center align-middle">INFORMACIÓN SOBRE EL ARTISTA</td>
               </tr>
@@ -136,6 +136,17 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
   <script src="js/google-map.js"></script>
   <script src="js/main.js"></script>
+
+  <script>
+    $(document).ready(function(){
+      $("#myInput").on("keyup", function() {
+        var value = $(this).val().toLowerCase();
+        $("#myTable tr").filter(function() {
+          $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+      });
+    });
+</script>
     
   </body>
 </html>
