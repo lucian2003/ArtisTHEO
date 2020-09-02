@@ -29,9 +29,8 @@ class artista
     private $nombre;
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="tipo", type="integer")
+     * @ORM\ManyToOne(targetEntity="tipo")
+     * @ORM\JoinColumn(name="tipo", referencedColumnName="id")
      */
     private $tipo;
 
@@ -78,30 +77,6 @@ class artista
     }
 
     /**
-     * Set tipo
-     *
-     * @param integer $tipo
-     *
-     * @return artista
-     */
-    public function setTipo($tipo)
-    {
-        $this->tipo = $tipo;
-
-        return $this;
-    }
-
-    /**
-     * Get tipo
-     *
-     * @return int
-     */
-    public function getTipo()
-    {
-        return $this->tipo;
-    }
-
-    /**
      * Set informacion
      *
      * @param string $informacion
@@ -124,5 +99,28 @@ class artista
     {
         return $this->informacion;
     }
-}
 
+    /**
+     * Set tipo
+     *
+     * @param \AppBundle\Entity\tipo $tipo
+     *
+     * @return artista
+     */
+    public function setTipo(\AppBundle\Entity\tipo $tipo = null)
+    {
+        $this->tipo = $tipo;
+
+        return $this;
+    }
+
+    /**
+     * Get tipo
+     *
+     * @return \AppBundle\Entity\tipo
+     */
+    public function getTipo()
+    {
+        return $this->tipo;
+    }
+}
