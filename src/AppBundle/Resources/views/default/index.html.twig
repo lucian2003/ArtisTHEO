@@ -87,11 +87,11 @@
             </tr>
           </thead>
           <tbody id="myTable">
-            {% for i in 0..10 %}
+            {% for artista in artistas %}
               <tr>
-                <td id="position" class="text-center align-middle">NOMBRE DEL ARTISTA {{i}}</td>
-                <td id="position" class="text-center align-middle">CATEGORÍA DEL ARTISTA</td>
-                <td id="position" class="text-center align-middle">INFORMACIÓN SOBRE EL ARTISTA</td>
+                <td id="position" class="text-center align-middle">{{artista.nombre}}</td>
+                <td id="position" class="text-center align-middle">{{artista.Tipo.nombre}}</td>
+                <td id="position" class="text-center align-middle">{{artista.informacion}}</td>
               </tr>
             {% endfor %}
           </tbody>
